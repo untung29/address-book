@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
 
@@ -6,12 +5,18 @@ import { Routes, Route } from "react-router-dom";
 import EmployeeList from "./pages/employee-list/employee-list";
 import EmployeeAdd from "./pages/employee-add/employee-add";
 
+// Components
+import TopNavigation from "./components/top-navigation/top-navigation";
+
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<EmployeeList />} />
-      <Route path="/add" element={<EmployeeAdd />} />
-    </Routes>
+    <div class="container">
+      <TopNavigation />
+      <Routes>
+        <Route path="/" element={<EmployeeList />} />
+        <Route path="/add" element={<EmployeeAdd />} />
+      </Routes>
+    </div>
   );
 }
 
