@@ -10,7 +10,7 @@ import TopNavigation from "./components/top-navigation/top-navigation";
 
 function App() {
   return (
-    <div class="container">
+    <div className="container">
       <TopNavigation />
       <Routes>
         <Route path="/" element={<EmployeeList />} />

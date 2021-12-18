@@ -1,9 +1,15 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useLocation, useNavigate } from "react-router-dom";
 
-const withRouter = WrappedComponent => props => {
-  const params = useParams();
-  return <WrappedComponent {...props} params={params} />;
+const withRouter = WrappedComponent => {
+  const ComponentRouterProps = props => {
+    const params = useParams();
+    const location = useLocation();
+    const navigate = useNavigate();
+    return <WrappedComponent params={params} location={location} navigate={navigate} {...props} />;
+  };
+
+  return ComponentRouterProps;
 };
 
 export default withRouter;
