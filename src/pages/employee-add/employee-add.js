@@ -75,16 +75,25 @@ const EmployeeAdd = () => {
       <Form onSubmit={submitForm}>
         <h3>Employee Form</h3>
         <hr />
-        <Field label="First Name" id="firstname" type="text" placeholder="First Name" onChange={handleFirstName} />
-        <Field label="Last Name" id="lastname" type="text" placeholder="Last Name" onChange={handleLastName} />
-        <Field label="Department" id="department" type="text" placeholder="Department" onChange={handleDepartment} />
-        <Field
-          label="Phone Number"
-          id="phonenumber"
-          type="number"
-          placeholder="Phone Number"
-          onChange={handlePhoneNumber}
-        />
+        <div className="mt-3">
+          <Field label="First Name" id="firstname" type="text" placeholder="First Name" onChange={handleFirstName} />
+        </div>
+        <div className="mt-3">
+          <Field label="Last Name" id="lastname" type="text" placeholder="Last Name" onChange={handleLastName} />
+        </div>
+        <div className="mt-3">
+          <Field label="Department" id="department" type="text" placeholder="Department" onChange={handleDepartment} />
+        </div>
+        <div className="mt-3">
+          <Field
+            label="Phone Number"
+            id="phonenumber"
+            type="number"
+            placeholder="Phone Number"
+            onChange={handlePhoneNumber}
+          />
+        </div>
+
         <div className="mt-3">
           <Button isDisabled={!isValid()}>Submit</Button>
         </div>
