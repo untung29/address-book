@@ -1,8 +1,12 @@
 import React from "react";
 
-const Button = ({ type, children, onClick, isDisabled }) => {
+const Button = ({ type, children, onClick, isDisabled, style }) => {
   return (
-    <button onClick={onClick} type={type} className={`btn btn-primary mt-3 px-5 ${isDisabled && "disabled"}`}>
+    <button
+      onClick={onClick}
+      type={type}
+      className={`btn ${style ? style : "btn-primary "} ${isDisabled && "disabled"}`}
+    >
       {children}
     </button>
   );

@@ -85,7 +85,9 @@ const EmployeeAdd = () => {
           placeholder="Phone Number"
           onChange={handlePhoneNumber}
         />
-        <Button isDisabled={!isValid()}>Submit</Button>
+        <div className="mt-3">
+          <Button isDisabled={!isValid()}>Submit</Button>
+        </div>
       </Form>
       <ToastContainer />
     </div>

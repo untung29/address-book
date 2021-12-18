@@ -3,13 +3,20 @@ import React from "react";
 // components
 import TableContainer from "../../components/table-container/table-container.component";
 import TableItem from "../../components/table-item/table-item.component";
+import Button from "../../components/button/button.component";
 
 // redux
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { deleteEmployee } from "../../redux/employee/employee.action";
 
 const EmployeeList = props => {
   const listEmployees = useSelector(state => state.employee.listEmployees);
-  console.log(listEmployees);
+  const dispatch = useDispatch();
+
+  const removeEmployee = employeeId => {
+    dispatch(deleteEmployee(employeeId));
+  };
+
   const renderListEmployees = () => {
     return listEmployees.map((employee, index) => {
       return (
@@ -19,6 +26,16 @@ const EmployeeList = props => {
           <TableItem item={employee.lastName} />
           <TableItem item={employee.department} />
           <TableItem item={employee.phoneNumber} />
+          <td>
+            <Button
+              style="btn-danger btn-sm"
+              onClick={() => {
+                removeEmployee(employee.id);
+              }}
+            >
+              Delete
+            </Button>
+          </td>
         </tr>
       );
     });
