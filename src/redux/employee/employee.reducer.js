@@ -1,7 +1,7 @@
 import { EmployeeActionTypes } from "./employee.types";
 
 const INITIAL_STATE = {
-  listEmployees: null,
+  listEmployees: [],
 };
 
 const employeeReducer = (state = INITIAL_STATE, action) => {

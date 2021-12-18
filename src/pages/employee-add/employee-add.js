@@ -5,7 +5,16 @@ import Field from "../../components/field/field.component";
 import Form from "../../components/form/form.component";
 import Button from "../../components/button/button.component";
 
+// Redux
+import { useDispatch } from "react-redux";
+import { addEmployee } from "../../redux/employee/employee.action";
+
+// Model
+import Employee from "../../Model/employee.model";
+
 const EmployeeAdd = () => {
+  const dispatch = useDispatch();
+
   const [firstName, setFirstName] = useState("");
   const handleFirstName = useCallback(
     event => {
@@ -38,11 +47,24 @@ const EmployeeAdd = () => {
     [phoneNumber],
   );
 
-  const submitForm = () => {};
+  const isValid = () => {
+    if (!phoneNumber || !department || !firstName || !lastName) {
+      return false;
+    }
+    return true;
+  };
+
+  const submitForm = event => {
+    // Prevent refresh
+    event.preventDefault();
+
+    const newEmployee = new Employee(firstName, lastName, department, phoneNumber);
+    dispatch(addEmployee(newEmployee));
+  };
 
   return (
     <div>
-      <Form>
+      <Form onSubmit={submitForm}>
         <h3>Employee Form</h3>
         <hr />
         <Field label="First Name" id="firstname" type="text" placeholder="First Name" onChange={handleFirstName} />
@@ -55,9 +77,7 @@ const EmployeeAdd = () => {
           placeholder="Phone Number"
           onChange={handlePhoneNumber}
         />
-        <Button type="submit" onClick={submitForm}>
-          Submit
-        </Button>
+        <Button isDisabled={!isValid()}>Submit</Button>
       </Form>
     </div>
   );
