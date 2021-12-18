@@ -1,9 +1,11 @@
 import React, { useState, useCallback } from "react";
+import "react-toastify/dist/ReactToastify.css";
 
 // Components
 import Field from "../../components/field/field.component";
 import Form from "../../components/form/form.component";
 import Button from "../../components/button/button.component";
+import { ToastContainer, toast } from "react-toastify";
 
 // Redux
 import { useDispatch } from "react-redux";
@@ -60,6 +62,12 @@ const EmployeeAdd = () => {
 
     const newEmployee = new Employee(firstName, lastName, department, phoneNumber);
     dispatch(addEmployee(newEmployee));
+
+    // Reset the form
+    event.target.reset();
+
+    // Show the toast
+    toast.success("Employee is successfully added");
   };
 
   return (
@@ -79,6 +87,7 @@ const EmployeeAdd = () => {
         />
         <Button isDisabled={!isValid()}>Submit</Button>
       </Form>
+      <ToastContainer />
     </div>
   );
 };
