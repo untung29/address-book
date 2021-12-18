@@ -1,10 +1,10 @@
 import React from "react";
 
-const Field = ({ label, id, type, placeholder }) => {
+const Field = ({ label, id, type, placeholder, onChange }) => {
   return (
-    <div class="form-group mt-3">
-      <label for={id}>{label}</label>
-      <input type={type} class="form-control" for={id} placeholder={placeholder} />
+    <div className="form-group mt-3">
+      <label htmlFor={id}>{label}</label>
+      <input type={type} className="form-control" id={id} placeholder={placeholder} onChange={onChange} required />
     </div>
   );
 };
