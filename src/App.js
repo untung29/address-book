@@ -6,7 +6,7 @@ import EmployeeList from "./pages/employee-list/employee-list";
 import EmployeeAdd from "./pages/employee-add/employee-add";
 
 // Components
-import TopNavigation from "./components/top-navigation/top-navigation";
+import TopNavigation from "./components/top-navigation/top-navigation.component";
 
 function App() {
   return (
