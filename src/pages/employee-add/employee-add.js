@@ -83,7 +83,7 @@ const EmployeeAdd = () => {
         </div>
 
         <div className="mt-3">
-          <Button isDisabled={!isValid()}>Submit</Button>
+          <Button>Submit</Button>
         </div>
       </Form>
       <ToastContainer />
