@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 // components
 import TableContainer from "../../components/table-container/table-container.component";
@@ -60,7 +60,7 @@ const EmployeeList = props => {
           <TableItem item={employee.phoneNumber} />
           <td>
             <Button
-              style="btn-danger btn-sm"
+              additionalStyle="btn-danger btn-sm"
               onClick={() => {
                 removeEmployee(employee.id);
               }}

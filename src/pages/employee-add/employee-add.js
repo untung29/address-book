@@ -18,36 +18,24 @@ const EmployeeAdd = () => {
   const dispatch = useDispatch();
 
   const [firstName, setFirstName] = useState("");
-  const handleFirstName = useCallback(
-    event => {
-      setFirstName(event.target.value);
-    },
-    [firstName],
-  );
+  const handleFirstName = useCallback(event => {
+    setFirstName(event.target.value);
+  }, []);
 
   const [lastName, setLastName] = useState("");
-  const handleLastName = useCallback(
-    event => {
-      setLastName(event.target.value);
-    },
-    [lastName],
-  );
+  const handleLastName = useCallback(event => {
+    setLastName(event.target.value);
+  }, []);
 
   const [department, setDepartment] = useState("");
-  const handleDepartment = useCallback(
-    event => {
-      setDepartment(event.target.value);
-    },
-    [department],
-  );
+  const handleDepartment = useCallback(event => {
+    setDepartment(event.target.value);
+  }, []);
 
   const [phoneNumber, setPhoneNumber] = useState("");
-  const handlePhoneNumber = useCallback(
-    event => {
-      setPhoneNumber(event.target.value);
-    },
-    [phoneNumber],
-  );
+  const handlePhoneNumber = useCallback(event => {
+    setPhoneNumber(event.target.value);
+  }, []);
 
   const isValid = () => {
     if (!phoneNumber || !department || !firstName || !lastName) {
