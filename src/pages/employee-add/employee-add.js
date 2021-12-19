@@ -71,7 +71,7 @@ const EmployeeAdd = () => {
   };
 
   return (
-    <div>
+    <div className="mt-5">
       <Form onSubmit={submitForm}>
         <h3>Employee Form</h3>
         <hr />

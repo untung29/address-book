@@ -78,8 +78,7 @@ const EmployeeList = props => {
   };
 
   return (
-    <div>
-      <h1>Employee List!</h1>
+    <div className="mt-5">
       <CustomDropdown
         list={["Descending", "Ascending"]}
         onChange={sortEmployeeSurname}
