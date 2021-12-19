@@ -99,10 +99,13 @@ const EmployeeList = props => {
           />
         </div>
       </div>
-
-      <TableContainer headings={["#", "First Name", "Last Name", "Department", "Phone Number"]}>
-        <tbody>{renderListEmployees()}</tbody>
-      </TableContainer>
+      {listEmployees.length > 0 ? (
+        <TableContainer headings={["#", "First Name", "Last Name", "Department", "Phone Number"]}>
+          <tbody>{renderListEmployees()}</tbody>
+        </TableContainer>
+      ) : (
+        <h3>No Employees, Add New Employee!</h3>
+      )}
     </div>
   );
 };
