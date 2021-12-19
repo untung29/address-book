@@ -1,9 +1,8 @@
 import React from "react";
 
-const Field = ({ label, id, type, placeholder, onChange, disabled }) => {
+const Field = ({ id, type, placeholder, onChange, disabled }) => {
   return (
     <div className="form-group">
-      {/* <label htmlFor={id}>{label}</label> */}
       <input
         type={type}
         className="form-control"

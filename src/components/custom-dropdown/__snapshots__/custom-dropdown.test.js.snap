@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Button/> Snapshot Testing 1`] = `
+exports[`<CustomDropdown /> Snapshot Testing 1`] = `
 <div
   className="Dropdown-root"
 >

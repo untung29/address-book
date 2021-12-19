@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Field /> Snapshot Testing 1`] = `
+<div
+  className="form-group"
+>
+  <input
+    className="form-control"
+    id="firstname"
+    placeholder="First Name"
+    required={true}
+    type="text"
+  />
+</div>
+`;
