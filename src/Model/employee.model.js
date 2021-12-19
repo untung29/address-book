@@ -1,6 +1,6 @@
 class Employee {
-  constructor(firstName, lastName, department, phoneNumber) {
-    this.id = Date.now();
+  constructor(id, firstName, lastName, department, phoneNumber) {
+    this.id = id || Date.now();
     this.firstName = firstName;
     this.lastName = lastName;
     this.department = department;
