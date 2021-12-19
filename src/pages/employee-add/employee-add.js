@@ -37,12 +37,12 @@ const EmployeeAdd = () => {
     setPhoneNumber(event.target.value);
   }, []);
 
-  const isValid = () => {
-    if (!phoneNumber || !department || !firstName || !lastName) {
-      return false;
-    }
-    return true;
-  };
+  // const isValid = () => {
+  //   if (!phoneNumber || !department || !firstName || !lastName) {
+  //     return false;
+  //   }
+  //   return true;
+  // };
 
   const submitForm = event => {
     // Prevent refresh
