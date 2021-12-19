@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Button/> Snapshot Testing 1`] = `
+<div
+  className="Dropdown-root"
+>
+  <div
+    aria-haspopup="listbox"
+    className="Dropdown-control"
+    onMouseDown={[Function]}
+    onTouchEnd={[Function]}
+  >
+    <div
+      className="Dropdown-placeholder"
+    >
+      Select to filter by
+    </div>
+    <div
+      className="Dropdown-arrow-wrapper"
+    >
+      <span
+        className="Dropdown-arrow"
+      />
+    </div>
+  </div>
+</div>
+`;
