@@ -9,7 +9,7 @@ import Field from "../../components/field/field.component";
 
 // redux
 import { useSelector, useDispatch } from "react-redux";
-import { deleteEmployee, filterEmployee } from "../../redux/employee/employee.action";
+import { deleteEmployee, sortStaffSurname } from "../../redux/employee/employee.action";
 
 const EmployeeList = props => {
   // Get the list of employees from redux
@@ -73,18 +73,22 @@ const EmployeeList = props => {
     });
   };
 
-  // useEffect(() => {
-  //   setFilteredEmployees(listEmployees);
-  // }, []);
+  const sortEmployeeSurname = ({ value }) => {
+    dispatch(sortStaffSurname(value));
+  };
 
-  // label, id, type, placeholder, onChange
   return (
     <div>
       <h1>Employee List!</h1>
+      <CustomDropdown
+        list={["Descending", "Ascending"]}
+        onChange={sortEmployeeSurname}
+        placeholder="Sort Staff Surname"
+      />
 
       <div className="row mt-3 mb-3">
         <div className="col-sm">
-          <CustomDropdown list={["Department", "Name"]} onChange={selectFilterBy} />
+          <CustomDropdown list={["Department", "Name"]} onChange={selectFilterBy} placeholder="Select to filter by" />
         </div>
         <div className="col-sm">
           <Field
@@ -96,6 +100,7 @@ const EmployeeList = props => {
           />
         </div>
       </div>
+
       <TableContainer headings={["#", "First Name", "Last Name", "Department", "Phone Number"]}>
         <tbody>{renderListEmployees()}</tbody>
       </TableContainer>

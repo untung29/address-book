@@ -1,5 +1,6 @@
 import { EmployeeActionTypes } from "./employee.types";
 import Employee from "../../Model/employee.model";
+import _ from "underscore";
 
 const INITIAL_STATE = {
   listEmployees: [
@@ -9,7 +10,6 @@ const INITIAL_STATE = {
     new Employee("4", "Brittney", "Spears", "IT Department", "0431636895"),
     new Employee("5", "Juanda", "Hope", "IT Department", "0431636895"),
   ],
-  filteredEmployees: [],
 };
 
 const employeeReducer = (state = INITIAL_STATE, action) => {
@@ -20,16 +20,19 @@ const employeeReducer = (state = INITIAL_STATE, action) => {
     case EmployeeActionTypes.DELETE_EMPLOYEE:
       filteredEmployees = state.listEmployees.filter(employee => employee.id !== action.payload);
       return { ...state, listEmployees: filteredEmployees };
-    // case EmployeeActionTypes.FILTER_EMPLOYEE:
-    //   let { filterBy, keyword } = action.payload;
-    //   if (filterBy === "Department") {
-    //     filteredEmployees = state.listEmployees.filter(employee => employee.department.toLowerCase().includes(keyword));
-    //   } else if (filterBy === "Name") {
-    //     filteredEmployees = state.listEmployees.filter(employee => employee.firstName.toLowerCase().includes(keyword));
-    //   }
-    //   return { ...state, filteredEmployees: filteredEmployees };
+    case EmployeeActionTypes.SORT_EMPLOYEE:
+      let sortedEmployees = [];
+      if (action.payload === "Descending") {
+        sortedEmployees = _.sortBy(state.listEmployees, employee => {
+          return employee.lastName.charCodeAt() * -1;
+        });
+      } else {
+        sortedEmployees = _.sortBy(state.listEmployees, "lastName");
+      }
+
+      return { ...state, listEmployees: sortedEmployees };
     default:
-      return { ...state, filteredEmployees: state.listEmployees };
+      return state;
   }
 };
 

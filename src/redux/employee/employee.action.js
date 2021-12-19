@@ -11,3 +11,7 @@ export const deleteEmployee = employeeId => {
 // export const filterEmployee = (filterBy, keyword) => {
 //   return { type: EmployeeActionTypes.FILTER_EMPLOYEE, payload: { filterBy: filterBy, keyword: keyword } };
 // };
+
+export const sortStaffSurname = orderBy => {
+  return { type: EmployeeActionTypes.SORT_EMPLOYEE, payload: orderBy };
+};

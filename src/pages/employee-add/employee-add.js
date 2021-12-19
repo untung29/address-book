@@ -60,7 +60,7 @@ const EmployeeAdd = () => {
     // Prevent refresh
     event.preventDefault();
 
-    const newEmployee = new Employee(firstName, lastName, department, phoneNumber);
+    const newEmployee = new Employee(null, firstName, lastName, department, phoneNumber);
     dispatch(addEmployee(newEmployee));
 
     // Reset the form
