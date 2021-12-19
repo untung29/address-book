@@ -7,3 +7,7 @@ export const addEmployee = employee => {
 export const deleteEmployee = employeeId => {
   return { type: EmployeeActionTypes.DELETE_EMPLOYEE, payload: employeeId };
 };
+
+// export const filterEmployee = (filterBy, keyword) => {
+//   return { type: EmployeeActionTypes.FILTER_EMPLOYEE, payload: { filterBy: filterBy, keyword: keyword } };
+// };

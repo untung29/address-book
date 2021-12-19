@@ -9,7 +9,7 @@ import Field from "../../components/field/field.component";
 
 // redux
 import { useSelector, useDispatch } from "react-redux";
-import { deleteEmployee } from "../../redux/employee/employee.action";
+import { deleteEmployee, filterEmployee } from "../../redux/employee/employee.action";
 
 const EmployeeList = props => {
   // Get the list of employees from redux
@@ -28,24 +28,28 @@ const EmployeeList = props => {
   const selectFilterBy = filterBy => {
     setFilterBy(filterBy.value);
   };
-  const [filteredEmployees, setFilteredEmployees] = useState([]);
+
+  // Set the search keyword
+  const [searchKeyword, setSearchKeyword] = useState("");
   const filterEmployees = event => {
     // Get the keyword and lower case it
     let keyword = event.target.value.toLowerCase();
-
-    // Check if the filter by department or employee's name
-    if (filterBy === "Department") {
-      // Filter it only to include the keyword's department
-      let filteredEmployees = listEmployees.filter(employee => employee.department.toLowerCase().includes(keyword));
-      setFilteredEmployees(filteredEmployees);
-    } else {
-      // Filter it only to include the keyword's first name
-      let filteredEmployees = listEmployees.filter(employee => employee.firstName.toLowerCase().includes(keyword));
-      setFilteredEmployees(filteredEmployees);
-    }
+    setSearchKeyword(keyword);
   };
 
+  // Render list employees
   const renderListEmployees = () => {
+    let filteredEmployees = listEmployees;
+    if (filterBy === "Department") {
+      filteredEmployees = filteredEmployees.filter(employee =>
+        employee.department.toLowerCase().includes(searchKeyword),
+      );
+    } else if (filterBy === "Name") {
+      filteredEmployees = filteredEmployees.filter(employee =>
+        employee.firstName.toLowerCase().includes(searchKeyword),
+      );
+    }
+
     return filteredEmployees.map((employee, index) => {
       return (
         <tr key={employee.id}>
@@ -69,9 +73,9 @@ const EmployeeList = props => {
     });
   };
 
-  useEffect(() => {
-    setFilteredEmployees(listEmployees);
-  }, []);
+  // useEffect(() => {
+  //   setFilteredEmployees(listEmployees);
+  // }, []);
 
   // label, id, type, placeholder, onChange
   return (
